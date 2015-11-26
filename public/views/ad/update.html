@@ -1,0 +1,73 @@
+<div class="card">
+    <div class="card-header">
+        <h2>Update ad</h2>
+        <small>Make the necessary changes and click "Save"</small>
+    </div>
+    <form role="form" name="adsForm">
+        <div class="col-md-12">
+            <div class="col-md-6 form-first-col">
+                <div class= "form-group" ng-class="{error: adsForm.type.$invalid}">
+                    <div class="custom-label-update">You act like</div>
+                    <div class="radio radio-success" ng-init="ad.type">
+                        <label class="form-radio"><input type="radio" name="type" value="частное лицо" ng-model="ad.type">Private person</label>
+                        <label class="form-radio"><input type="radio" name="type" value="компания" ng-model="ad.type">Company</label>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{error: adsForm.name.$invalid}">
+                    <div>
+                        <input name="name" type="text" class="form-control" placeholder="Your name" ng-model="ad.name"/>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{error: adsForm.email.$invalid}">
+                    <div>
+                        <input name="email" type="text" class="form-control" placeholder="Your email" ng-model="ad.email"/>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{error: adsForm.phone.$invalid}">
+                    <div>
+                        <input name="phone" type= "text" class="form-control" placeholder="Phone number" ng-model="ad.phone"/>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{error: ad.allow_mails.$invalid}">
+                    <div class="custom-label-update">Notifications</div>
+                    <div class="checkbox">
+                        <label><input name="allow_mails" type="checkbox" ng-model="ad.allow_mails" ng-false-value="1" ng-true-value="0"> I don't want to receive related questions via e-mail</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class= "form-group" ng-class="{error: adsForm.city.$invalid}">
+                    <div>
+                        <select class="form-control" placeholder="City" ng-model="ad.city" data-ng-options="option.id as option.name for option in cityOptions">
+                            <option value="">- Choose city -</option>
+                        </select>
+                    </div>
+                </div>
+                <div class= "form-group" ng-class="{error: adsForm.category.$invalid}">
+                    <div>
+                        <select class="form-control" placeholder="Category" ng-model="ad.category" data-ng-options="option.id as option.name group by option.group for option in categoryOptions">
+                            <option value="">- Choose category -</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{error: adsForm.title.$invalid}">
+                    <div>
+                        <input name="title" type= "text" class="form-control" placeholder="Title" ng-model="ad.title" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <textarea name="description" class="form-control" placeholder="Description" ng-model="ad.description"></textarea>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{error: adsForm.price.$invalid}">
+                    <div>
+                        <input name="price" type="text" class= "form-control" placeholder="Price" ng-model="ad.price"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#/ad/index" class="btn btn-default">Cancel</a>
+        <button type="submit" class="btn btn-success" ng-click="updateAd(ad)" ng-disabled="adsForm.$invalid">Save</button>
+    </form>
+</div>
