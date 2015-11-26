@@ -66,8 +66,7 @@ node server
 ```
 You will see the following: `App listening on port 8080`.
 It means, the application is running. You can view it `http://localhost:8080`.
-> По умолчанию будет использован порт 8080. Изменить порт можно в файле **server.js**, в корневой папке проекта.
-By default 8080 is used as port. You can change it by editing file ** server.js **, which is placed in the root folder of the project.
+> By default 8080 is used as port. You can change it by editing file ** server.js **, which is placed in the root folder of the project.
 ```
 var port = 8080;
 ```
