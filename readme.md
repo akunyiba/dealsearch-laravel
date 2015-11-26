@@ -1,73 +1,73 @@
 Dealsearch - Node.js + AngularJS App
 =================
 
-Для работы приложения требуются **Node.js** и **MongoDB**.
+For the application **Node.js** and **MongoDB** are required.
 
-#### Установка Node.js
-Загрузите и установите последнюю версию Node.js с [официального сайта](https://nodejs.org/en/).<br> 
-Альтернативная установка [через пакетные менеджеры](https://nodejs.org/en/download/package-manager/).
-> После установки Node.js, вам также станет доступен пакетный менеджер - npm. Проверить успешность установки можно введя в командной строке `npm` - должна отобразится справочная информация.
+#### Node.js installation
+Download and install the latest version of Node.js from [official website](https://nodejs.org/en/).<br> 
+Alternative installation [via package managers](https://nodejs.org/en/download/package-manager/).
+> After installing Node.js, you will be available to use Node package manager - npm. You can check yourself for successful installation by typing the `npm` - this should display npm's help information.
 
-#### Установка MongoDB
-MongoDB необходима директория для данных, создать которую вы можете с помощью:
+#### MongoDB installation
+MongoDB needs a folder for storing data, create such you can with the following:
 ```
 sudo mkdir -p /data/db
 ```
 
-Дальнейшие инструкции по установке, на официальном сайте для [Windows](https://docs.mongodb.org/master/tutorial/install-mongodb-on-windows/), [Mac](https://docs.mongodb.org/master/tutorial/install-mongodb-on-os-x/), [Linux](https://docs.mongodb.org/master/administration/install-on-linux/).
+Further instructions on the official website for [Windows](https://docs.mongodb.org/master/tutorial/install-mongodb-on-windows/), [Mac](https://docs.mongodb.org/master/tutorial/install-mongodb-on-os-x/), [Linux](https://docs.mongodb.org/master/administration/install-on-linux/).
 
-#### Загрузка Dealsearch
-Введите в коммандной строке команду, которая выполнит загрузку приложения в нужную папку:
+#### Download Dealsearch
+To download the application enter the following in your console command:
 ```
 git clone https://github.com/akunyiba/dealsearch-node.git
 ```
-Перейдите в папку проекта:
+Navigate to the project folder::
 ```
 cd dealsearch-node
 ```
 
-#### Установка пакетов
+#### Installing Packages
 
-При помощи `npm` установите необходимые для работы приложения пакеты, выполнив следующую команду в коммандной строке:
-
+To install the application required packages type following:
 ```
 npm install
 ```
 
-#### Запуск локального сервера
-Выполнив
+#### Local server
+After completing:
 ```
 sudo mongod
 ```
-в коммандой строке, должна появится запись `[initandlisten] waiting for connections on port 27017` - веб-сервер запущен и ожидает соединений порт 27017.
-> после выполнения этой команды, сверните текущее окно консоли и откройте новое - последующие команды выполняйте в нем, т.к. MongoDB сервер должен быть запущен для работы приложения.
+in your console, you should see following: `[initandlisten] waiting for connections on port 27017`.
+> After running this command, minimize the current window and open a new console - perform next commands in it, because MongoDB server must be running.
 
-#### Настройка базы данных
-Настроить подключение к базе данных, при необходимости, вы можете в файле **database.js**, который находится в папке проекта по пути `config/database`:
+#### Database settings
+Set up a database connection you can by editing file ** database.js **, which is in the path of the project folder `config / database`:
 
 ```javascript
 module.exports = {
     url : 'mongodb://127.0.0.1:27017/dealsearch'
 };
 ```
-Где `127.0.0.1:27017` отвечает за `host:post` соответственно, а `dealsearch` это имя базы данных. Если базы данных не существует - она создается с указанным именем.
+Where `127.0.0.1:27017` responsible for `host:post`, and `dealsearch` it's a name of the database. If the database does not exist - it will be created with the specified name.
 
-#### Первичные данные
+#### Seed database with required data
 
-Необходимо заполнить базу необходимыми для работы приложения данными выполнив следующую команду:
+Use following to run seed:
 ```
 node seed
 ```
-В результате увидете строки вывода: `Successfully created document [10] of City model`. Нажмите `CTRL + C`.
+As a result, you will see an output: `Successfully created document [10] of City model`. Press `CTRL + C`.
 
-#### Запуск приложения
-Выполните команду:
+#### Run application
+Execute following:
 ```
 node server
 ```
-В командрой строке появится сообщение: `App listening on port 8080`.
-Приложение запущено. Чтобы посмотреть результат перейдите по адресу `http://localhost:8080`.
+You will see the following: `App listening on port 8080`.
+It means, the application is running. You can view it `http://localhost:8080`.
 > По умолчанию будет использован порт 8080. Изменить порт можно в файле **server.js**, в корневой папке проекта.
+By default 8080 is used as port. You can change it by editing file ** server.js **, which is placed in the root folder of the project.
 ```
 var port = 8080;
 ```
